@@ -1,13 +1,19 @@
 package com.braindevoiler.designpattern.behavioral.state;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 public class GumballMachine {
+    private static final Logger LOGGER = LoggerFactory.getLogger(GumballMachine.class);
+
     State soldOutState;
     State noQuarterState;
     State hasQuarterState;
     State soldState;
 
     State state;
-    int count = 0;
+    int count;
 
     public GumballMachine(int numberOfGumballs) {
         soldOutState = new SoldOutState(this);
@@ -40,8 +46,8 @@ public class GumballMachine {
     }
 
     void releaseBall() {
-        System.out.println("A gumball comes rolling out the slot...");
-        if (count!=0) {
+        LOGGER.info("A gumball comes rolling out the slot...");
+        if (count != 0) {
             count = count - 1;
         }
     }

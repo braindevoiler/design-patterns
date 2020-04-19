@@ -1,9 +1,15 @@
 package com.braindevoiler.designpattern.behavioral.observer;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 public class CurrentConditionsDisplay implements Observer, DisplayElement {
+    private static final Logger LOGGER = LoggerFactory.getLogger(CurrentConditionsDisplay.class);
+
     private float temperature;
     private float humidity;
-    private Subject weatherData;
+    private final Subject weatherData;
 
     public CurrentConditionsDisplay(Subject weatherData) {
         this.weatherData = weatherData;
@@ -19,6 +25,6 @@ public class CurrentConditionsDisplay implements Observer, DisplayElement {
 
     @Override
     public void display() {
-        System.out.println("Current conditions: " + temperature + "F degrees and " + humidity + "% humidity");
+        LOGGER.info("Current conditions: {} F degrees and {}% humidity", temperature, humidity);
     }
 }

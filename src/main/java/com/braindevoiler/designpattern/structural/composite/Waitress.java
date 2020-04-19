@@ -2,7 +2,7 @@ package com.braindevoiler.designpattern.structural.composite;
 
 public class Waitress {
 
-    private MenuComponent allMenus;
+    private final MenuComponent allMenus;
 
     public Waitress(MenuComponent allMenus) {
         this.allMenus = allMenus;

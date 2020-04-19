@@ -1,7 +1,7 @@
 package com.braindevoiler.designpattern.structural.adapter;
 
 public class TurkeyAdapter implements Duck {
-    private Turkey turkey;
+    private final Turkey turkey;
 
     public TurkeyAdapter(Turkey turkey) {
         this.turkey = turkey;

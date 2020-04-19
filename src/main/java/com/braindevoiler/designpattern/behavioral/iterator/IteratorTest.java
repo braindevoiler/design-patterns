@@ -1,10 +1,10 @@
 package com.braindevoiler.designpattern.behavioral.iterator;
 
 public class IteratorTest {
-    /*
+    /**
      * The Iterator Pattern provides a way to access the elements of an aggregate object sequentially without
      * exposing its underlying representations.
-     *
+     * <p>
      * Iterator Pattern takes the responsibility of traversing elements and gives that responsibility to the iterator
      * object, not the aggregate object.
      */

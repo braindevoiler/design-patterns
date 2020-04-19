@@ -1,11 +1,17 @@
 package com.braindevoiler.designpattern.structural.facade;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 public class Screen {
+    private static final Logger LOGGER = LoggerFactory.getLogger(Screen.class);
+
     public void up() {
-        System.out.println("Setting screen up...");
+        LOGGER.info("Setting screen up...");
     }
 
     public void down() {
-        System.out.println("Setting screen down...");
+        LOGGER.info("Setting screen down...");
     }
 }

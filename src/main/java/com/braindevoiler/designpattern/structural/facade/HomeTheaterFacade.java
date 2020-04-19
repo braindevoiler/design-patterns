@@ -1,18 +1,23 @@
 package com.braindevoiler.designpattern.structural.facade;
 
-public class HomeTheaterFacade {
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-    private Amplifier amplifier;
-    private DvdPlayer dvdPlayer;
-    private Projector projector;
-    private TheaterLights theaterLights;
-    private Screen screen;
+
+public class HomeTheaterFacade {
+    private static final Logger LOGGER = LoggerFactory.getLogger(HomeTheaterFacade.class);
+
+    private final Amplifier amplifier;
+    private final DvdPlayer dvdPlayer;
+    private final Projector projector;
+    private final TheaterLights theaterLights;
+    private final Screen screen;
 
     public HomeTheaterFacade(Amplifier amplifier,
-                             DvdPlayer dvdPlayer,
-                             Projector projector,
-                             TheaterLights theaterLights,
-                             Screen screen) {
+            DvdPlayer dvdPlayer,
+            Projector projector,
+            TheaterLights theaterLights,
+            Screen screen) {
         this.amplifier = amplifier;
         this.dvdPlayer = dvdPlayer;
         this.projector = projector;
@@ -21,7 +26,7 @@ public class HomeTheaterFacade {
     }
 
     public void watchMovie(String movie) {
-        System.out.println("\n\nGet ready to watch a movie...");
+        LOGGER.info("\n\nGet ready to watch a movie...");
         theaterLights.dim(10);
         screen.down();
         projector.on();
@@ -34,7 +39,7 @@ public class HomeTheaterFacade {
     }
 
     public void endMovie() {
-        System.out.println("\n\nShutting movie theater down...");
+        LOGGER.info("\n\nShutting movie theater down...");
         theaterLights.on();
         screen.up();
         projector.off();

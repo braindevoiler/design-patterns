@@ -19,7 +19,7 @@ public class DinerMenuIterator implements Iterator<MenuItem> {
 
     @Override
     public MenuItem next() {
-        if(currentIndex<menuItems.length) {
+        if (currentIndex < menuItems.length) {
             MenuItem menuItem = menuItems[currentIndex];
             currentIndex++;
             return menuItem;

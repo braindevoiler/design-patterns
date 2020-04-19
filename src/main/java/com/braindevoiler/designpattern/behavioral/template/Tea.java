@@ -1,17 +1,24 @@
 package com.braindevoiler.designpattern.behavioral.template;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 public class Tea extends CaffeineBeverage {
+    private static final Logger LOGGER = LoggerFactory.getLogger(Tea.class);
+
     @Override
     public void description() {
-        System.out.println("\n\nPreparing Tea...\n");
+        LOGGER.info("\n\nPreparing Tea...\n");
     }
 
     @Override
     public void brew() {
-        System.out.println("Steeping the tea");
+        LOGGER.info("Steeping the tea");
     }
+
     @Override
     public void addCondiments() {
-        System.out.println("Adding Lemon");
+        LOGGER.info("Adding Lemon");
     }
 }

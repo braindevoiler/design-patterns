@@ -1,15 +1,16 @@
 package com.braindevoiler.designpattern.behavioral.command;
 
 public class SimpleRemoteControl {
-    private Command[] onCommands;
-    private Command[] offCommands;
+    private static final int COUNT_COMMANDS = 1;
+    private final Command[] onCommands;
+    private final Command[] offCommands;
     private Command undoCommand;
-    private final static int COUNT_COMMANDS = 1;
+
     public SimpleRemoteControl() {
         onCommands = new Command[COUNT_COMMANDS];
         offCommands = new Command[COUNT_COMMANDS];
         Command noCommand = new NoCommand();
-        for(int i=0; i<COUNT_COMMANDS; i++) {
+        for (int i = 0; i < COUNT_COMMANDS; i++) {
             onCommands[i] = noCommand;
             offCommands[i] = noCommand;
         }

@@ -1,8 +1,14 @@
 package com.braindevoiler.designpattern.structural.facade;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 public class DvdPlayer {
-    private Amplifier amplifier;
-    private  Projector projector;
+    private static final Logger LOGGER = LoggerFactory.getLogger(DvdPlayer.class);
+
+    private final Amplifier amplifier;
+    private final Projector projector;
 
     public DvdPlayer(Amplifier amplifier, Projector projector) {
         this.amplifier = amplifier;
@@ -10,27 +16,27 @@ public class DvdPlayer {
     }
 
     public void on() {
-        System.out.println("Switching on Dvd Player...");
+        LOGGER.info("Switching on Dvd Player...");
     }
 
     public void off() {
-        System.out.println("Switching off Dvd Player...");
+        LOGGER.info("Switching off Dvd Player...");
     }
 
     public void eject() {
-        System.out.println("Ejecting Dvd...");
+        LOGGER.info("Ejecting Dvd...");
     }
 
     public void pause() {
-        System.out.println("Pausing movie...");
+        LOGGER.info("Pausing movie...");
     }
 
     public void stop() {
-        System.out.println("Stopping movie...");
+        LOGGER.info("Stopping movie...");
     }
 
     public void play(String movie) {
-        System.out.println("Playing movie " + movie);
+        LOGGER.info("Playing movie {}", movie);
     }
 
     public void setSurroundAudio() {

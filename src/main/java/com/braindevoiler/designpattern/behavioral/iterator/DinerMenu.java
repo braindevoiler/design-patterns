@@ -1,12 +1,16 @@
 package com.braindevoiler.designpattern.behavioral.iterator;
 
 import java.util.Iterator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class DinerMenu implements Menu {
+    private static final Logger LOGGER = LoggerFactory.getLogger(DinerMenu.class);
+
     private static final int MAX_ITEMS = 6;
-    private int numberOfItems = 0;
     private final MenuItem[] menuItems;
+    private int numberOfItems = 0;
 
     public DinerMenu() {
         menuItems = new MenuItem[MAX_ITEMS];
@@ -28,7 +32,7 @@ public class DinerMenu implements Menu {
     public void addItem(String name, String description, boolean vegetarian, double price) {
         MenuItem menuItem = new MenuItem(name, description, vegetarian, price);
         if (numberOfItems >= MAX_ITEMS) {
-            System.out.println("Sorry, menu is full! Can't add item to menu");
+            LOGGER.info("Sorry, menu is full! Can't add item to menu");
         } else {
             menuItems[numberOfItems] = menuItem;
             numberOfItems = numberOfItems + 1;

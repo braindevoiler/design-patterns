@@ -1,22 +1,21 @@
 package com.braindevoiler.designpattern.structural.bridge;
 
 public class BridgeTest {
-    /*
+    /**
      * Use the Bridge Pattern to vary not only your implementations, but also your abstractions. It decouple an
      * abstraction from its implementation so that the two can vary independently.
-     *
+     * <p>
      * Implementation: Decompose the component's interface and implementation into orthogonal class hierarchies. The
      * interface class contains a pointer to the abstract implementation class. This pointer is initialized with an
      * instance of a concrete implementation class, but all subsequent interaction from the interface class to the
      * implementation class is limited to the abstraction maintained in the implementation base class. The client
      * interacts with the interface class, and it in turn "delegates" all requests to the implementation class.
-     *
+     * <p>
      * Benefits:
      * 1. It decouples an implementation so that it is not bound permanently to an interface.
      * 2. Abstraction and implementation can be extended independently.
      * 3. Changes to the concrete abstraction classes don't affect the client.
      * 4. Useful in graphic and windowing systems that need to run over multiple platforms.
-     *
      */
     public static void main(String args[]) {
         Tv sonyTv = new SonyTv();
@@ -34,7 +33,6 @@ public class BridgeTest {
         samsungTvOldRemote.on();
         samsungTvOldRemote.setChannel(25);
         samsungTvOldRemote.off();
-
 
         sonyTvNewRemote.on();
         sonyTvNewRemote.nextChannel();

@@ -1,6 +1,12 @@
 package com.braindevoiler.designpattern.structural.proxy;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 public class NoQuarterState implements State {
+    private static final Logger LOGGER = LoggerFactory.getLogger(NoQuarterState.class);
+
     // @transient will make sure that this field won't be serialized.
     transient GumballMachine gumballMachine;
 
@@ -10,23 +16,23 @@ public class NoQuarterState implements State {
 
     @Override
     public void insertQuarter() {
-        System.out.println("You inserted a quarter");
+        LOGGER.info("You inserted a quarter");
         gumballMachine.setState(gumballMachine.getHasQuarterState());
     }
 
     @Override
     public void ejectQuarter() {
-        System.out.println("You haven't inserted a quarter");
+        LOGGER.info("You haven't inserted a quarter");
     }
 
     @Override
     public void turnCrank() {
-        System.out.println("You turned, but there's no quarter");
+        LOGGER.info("You turned, but there's no quarter");
     }
 
     @Override
     public void dispense() {
-        System.out.println("You need to pay first");
+        LOGGER.info("You need to pay first");
     }
 
     @Override

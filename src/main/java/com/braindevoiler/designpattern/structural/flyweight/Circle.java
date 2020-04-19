@@ -1,12 +1,18 @@
 package com.braindevoiler.designpattern.structural.flyweight;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 public class Circle implements Shape {
-    private String color;
+    private static final Logger LOGGER = LoggerFactory.getLogger(Circle.class);
+
+    private final String color;
     private int x;
     private int y;
     private int radius;
 
-    public Circle(String color){
+    public Circle(String color) {
         this.color = color;
     }
 
@@ -24,6 +30,6 @@ public class Circle implements Shape {
 
     @Override
     public void draw() {
-        System.out.println("Circle: Draw() [Color : " + color + ", x : " + x + ", y :" + y + ", radius :" + radius);
+        LOGGER.info("Circle: Draw() [Color : {}, x : {}, y : {}, radius : {}", color, x, y, radius);
     }
 }

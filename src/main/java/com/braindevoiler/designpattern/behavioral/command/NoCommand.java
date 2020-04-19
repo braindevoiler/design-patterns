@@ -1,14 +1,19 @@
 package com.braindevoiler.designpattern.behavioral.command;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 public class NoCommand implements Command {
+    private static final Logger LOGGER = LoggerFactory.getLogger(NoCommand.class);
 
     @Override
     public void execute() {
-        System.out.println("Do Nothing");
+        LOGGER.info("Do Nothing");
     }
 
     @Override
     public void undo() {
-        System.out.println("Undo Nothing");
+        LOGGER.info("Undo Nothing");
     }
 }

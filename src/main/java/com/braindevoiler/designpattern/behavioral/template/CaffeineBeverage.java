@@ -1,6 +1,11 @@
 package com.braindevoiler.designpattern.behavioral.template;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 public abstract class CaffeineBeverage {
+    private static final Logger LOGGER = LoggerFactory.getLogger(CaffeineBeverage.class);
 
     public void prepareRecipe() {
         description();
@@ -17,10 +22,10 @@ public abstract class CaffeineBeverage {
     public abstract void addCondiments();
 
     public void boilWater() {
-        System.out.println("Boiling water");
+        LOGGER.info("Boiling water");
     }
 
     public void pourInCup() {
-        System.out.println("Pouring into cup");
+        LOGGER.info("Pouring into cup");
     }
 }

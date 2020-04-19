@@ -1,6 +1,12 @@
 package com.braindevoiler.designpattern.structural.proxy;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 public class GumballMonitor {
+    private static final Logger LOGGER = LoggerFactory.getLogger(GumballMonitor.class);
+
     GumballMachineRemote machine;
 
     public GumballMonitor(GumballMachineRemote machine) {
@@ -9,11 +15,11 @@ public class GumballMonitor {
 
     public void report() {
         try {
-            System.out.println("Gumball Machine: " + machine.getLocation());
-            System.out.println("Current inventory: " + machine.getCount() + " gumballs");
-            System.out.println("Current state:" + machine.getState());
+            LOGGER.info("Gumball Machine: {}", machine.getLocation());
+            LOGGER.info("Current inventory: {} gumballs", machine.getCount());
+            LOGGER.info("Current state: {}", machine.getState());
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error("Error:", e);
         }
     }
 }

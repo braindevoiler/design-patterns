@@ -2,16 +2,20 @@ package com.braindevoiler.designpattern.structural.proxy;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class GumballMachine extends UnicastRemoteObject implements GumballMachineRemote {
+    private static final Logger LOGGER = LoggerFactory.getLogger(GumballMachine.class);
+
     State soldOutState;
     State noQuarterState;
     State hasQuarterState;
     State soldState;
 
     State state;
-    int count = 0;
+    int count;
     String location;
 
     public GumballMachine(int numberOfGumballs, String location) throws RemoteException {
@@ -46,8 +50,8 @@ public class GumballMachine extends UnicastRemoteObject implements GumballMachin
     }
 
     void releaseBall() {
-        System.out.println("A gumball comes rolling out the slot...");
-        if (count!=0) {
+        LOGGER.info("A gumball comes rolling out the slot...");
+        if (count != 0) {
             count = count - 1;
         }
     }

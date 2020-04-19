@@ -1,17 +1,24 @@
 package com.braindevoiler.designpattern.behavioral.template;
 
-public class Coffee extends CaffeineBeverage{
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
+public class Coffee extends CaffeineBeverage {
+    private static final Logger LOGGER = LoggerFactory.getLogger(Coffee.class);
+
     @Override
     public void description() {
-        System.out.println("\n\nPreparing Coffee...\n");
+        LOGGER.info("\n\nPreparing Coffee...\n");
     }
 
     @Override
     public void brew() {
-        System.out.println("Dripping Coffee through filter");
+        LOGGER.info("Dripping Coffee through filter");
     }
+
     @Override
     public void addCondiments() {
-        System.out.println("Adding Sugar and Milk");
+        LOGGER.info("Adding Sugar and Milk");
     }
 }

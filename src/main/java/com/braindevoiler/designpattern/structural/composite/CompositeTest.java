@@ -1,10 +1,10 @@
 package com.braindevoiler.designpattern.structural.composite;
 
 public class CompositeTest {
-    /*
+    /**
      * The Composite Pattern allows you to compose objects into tree structures to represent part-whole hierarchies.
      * Composite lets clients treat individual objects and composition of objects uniformly.
-     *
+     * <p>
      * Using a composite structure, we can apply the same operations over both composites and individual objects.
      */
     public static void main(String args[]) {

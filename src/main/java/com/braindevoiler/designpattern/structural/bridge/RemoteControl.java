@@ -1,7 +1,7 @@
 package com.braindevoiler.designpattern.structural.bridge;
 
 public class RemoteControl {
-    private Tv tv;
+    private final Tv tv;
 
     public RemoteControl(Tv tv) {
         this.tv = tv;

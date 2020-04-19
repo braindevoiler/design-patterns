@@ -1,15 +1,19 @@
 package com.braindevoiler.designpattern.creational.builder;
 
+import lombok.Getter;
+
+
+@Getter
 public class Computer {
-    private String cpu;
-    private String motherBoard;
-    private String ram;
-    private String hardDisk;
-    private boolean isGraphicsCardEnabled;
-    private boolean isBluetoothEnabled;
+    private final String cpu;
+    private final String motherBoard;
+    private final String ram;
+    private final String hardDisk;
+    private final boolean isGraphicsCardEnabled;
+    private final boolean isBluetoothEnabled;
 
     private Computer(String cpu, String motherBoard, String ram, String hardDisk,
-                     boolean isGraphicsCardEnabled, boolean isBluetoothEnabled){
+            boolean isGraphicsCardEnabled, boolean isBluetoothEnabled) {
         this.cpu = cpu;
         this.motherBoard = motherBoard;
         this.ram = ram;
@@ -30,32 +34,32 @@ public class Computer {
         private boolean isGraphicsCardEnabled;
         private boolean isBluetoothEnabled;
 
-        public ComputerBuilder cpu (String cpu) {
+        public ComputerBuilder cpu(String cpu) {
             this.cpu = cpu;
             return this;
         }
 
-        public ComputerBuilder motherBoard (String motherBoard) {
+        public ComputerBuilder motherBoard(String motherBoard) {
             this.motherBoard = motherBoard;
             return this;
         }
 
-        public ComputerBuilder ram (String ram) {
+        public ComputerBuilder ram(String ram) {
             this.ram = ram;
             return this;
         }
 
-        public ComputerBuilder hardDisk (String hardDisk) {
+        public ComputerBuilder hardDisk(String hardDisk) {
             this.hardDisk = hardDisk;
             return this;
         }
 
-        public ComputerBuilder graphicsCardEnabled (boolean isGraphicsCardEnabled) {
+        public ComputerBuilder graphicsCardEnabled(boolean isGraphicsCardEnabled) {
             this.isGraphicsCardEnabled = isGraphicsCardEnabled;
             return this;
         }
 
-        public ComputerBuilder bluetoothEnabled (boolean isBluetoothEnabled) {
+        public ComputerBuilder bluetoothEnabled(boolean isBluetoothEnabled) {
             this.isBluetoothEnabled = isBluetoothEnabled;
             return this;
         }

@@ -1,6 +1,12 @@
 package com.braindevoiler.designpattern.structural.proxy;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 public class SoldState implements State {
+    private static final Logger LOGGER = LoggerFactory.getLogger(SoldState.class);
+
     GumballMachine gumballMachine;
 
     public SoldState(GumballMachine gumballMachine) {
@@ -9,17 +15,17 @@ public class SoldState implements State {
 
     @Override
     public void insertQuarter() {
-        System.out.println("Please wait, we're already giving you a gumball");
+        LOGGER.info("Please wait, we're already giving you a gumball");
     }
 
     @Override
     public void ejectQuarter() {
-        System.out.println("Sorry, you already turned the crank");
+        LOGGER.info("Sorry, you already turned the crank");
     }
 
     @Override
     public void turnCrank() {
-        System.out.println("Turning twice doesn't get you another gumball");
+        LOGGER.info("Turning twice doesn't get you another gumball");
     }
 
     @Override
@@ -28,13 +34,13 @@ public class SoldState implements State {
         if (gumballMachine.getCount() > 0) {
             gumballMachine.setState(gumballMachine.getNoQuarterState());
         } else {
-            System.out.println("Oops, out of gumballs!");
+            LOGGER.info("Oops, out of gumballs!");
             gumballMachine.setState(gumballMachine.getSoldOutState());
         }
     }
 
     @Override
-    public String  toString() {
+    public String toString() {
         return "SoldState";
     }
 

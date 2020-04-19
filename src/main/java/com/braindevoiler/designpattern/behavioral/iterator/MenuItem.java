@@ -1,15 +1,15 @@
 package com.braindevoiler.designpattern.behavioral.iterator;
 
 public class MenuItem {
-    private String name;
-    private String description;
-    private boolean vegetarian;
-    private double price;
+    private final String name;
+    private final String description;
+    private final boolean vegetarian;
+    private final double price;
 
     public MenuItem(String name,
-                    String description,
-                    boolean vegetarian,
-                    double price) {
+            String description,
+            boolean vegetarian,
+            double price) {
         this.name = name;
         this.description = description;
         this.vegetarian = vegetarian;
