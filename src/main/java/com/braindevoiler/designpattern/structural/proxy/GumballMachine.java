@@ -4,19 +4,26 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.braindevoiler.designpattern.structural.proxy.machinestate.HasQuarterState;
+import com.braindevoiler.designpattern.structural.proxy.machinestate.NoQuarterState;
+import com.braindevoiler.designpattern.structural.proxy.machinestate.SoldOutState;
+import com.braindevoiler.designpattern.structural.proxy.machinestate.SoldState;
+import com.braindevoiler.designpattern.structural.proxy.machinestate.State;
+import lombok.Getter;
 
 
-public class GumballMachine extends UnicastRemoteObject implements GumballMachineRemote {
+@Getter
+public class GumballMachine extends UnicastRemoteObject implements GumballMachineRemoteProxy {
     private static final Logger LOGGER = LoggerFactory.getLogger(GumballMachine.class);
 
-    State soldOutState;
-    State noQuarterState;
-    State hasQuarterState;
-    State soldState;
+    private final State soldOutState;
+    private final State noQuarterState;
+    private final State hasQuarterState;
+    private final State soldState;
 
-    State state;
-    int count;
-    String location;
+    private State state;
+    private int count;
+    private final String location;
 
     public GumballMachine(int numberOfGumballs, String location) throws RemoteException {
         soldOutState = new SoldOutState(this);
@@ -32,14 +39,17 @@ public class GumballMachine extends UnicastRemoteObject implements GumballMachin
         this.location = location;
     }
 
+    @Override
     public void insertQuarter() {
         state.insertQuarter();
     }
 
+    @Override
     public void ejectQuarter() {
         state.ejectQuarter();
     }
 
+    @Override
     public void turnCrank() {
         state.turnCrank();
         state.dispense();
@@ -49,38 +59,18 @@ public class GumballMachine extends UnicastRemoteObject implements GumballMachin
         this.state = state;
     }
 
-    void releaseBall() {
+    public void releaseBall() {
         LOGGER.info("A gumball comes rolling out the slot...");
         if (count != 0) {
             count = count - 1;
         }
     }
 
-    public State getState() {
-        return state;
+    @Override
+    public void report() {
+        LOGGER.info("Gumball Machine: {}", this.getLocation());
+        LOGGER.info("Current inventory: {} gumballs", this.getCount());
+        LOGGER.info("Current state: {}", this.getState());
     }
 
-    public State getSoldOutState() {
-        return soldOutState;
-    }
-
-    public State getNoQuarterState() {
-        return noQuarterState;
-    }
-
-    public State getHasQuarterState() {
-        return hasQuarterState;
-    }
-
-    public State getSoldState() {
-        return soldState;
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-    public String getLocation() {
-        return location;
-    }
 }

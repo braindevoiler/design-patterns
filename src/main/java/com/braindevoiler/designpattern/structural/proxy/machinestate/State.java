@@ -1,4 +1,4 @@
-package com.braindevoiler.designpattern.structural.proxy;
+package com.braindevoiler.designpattern.structural.proxy.machinestate;
 
 import java.io.Serializable;
 

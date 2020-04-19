@@ -1,7 +1,8 @@
-package com.braindevoiler.designpattern.structural.proxy;
+package com.braindevoiler.designpattern.structural.proxy.machinestate;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.braindevoiler.designpattern.structural.proxy.GumballMachine;
 
 
 public class SoldOutState implements State {
